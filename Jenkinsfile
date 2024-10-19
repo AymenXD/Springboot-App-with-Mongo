@@ -18,8 +18,8 @@ pipeline {
             steps {
                 script {
                     echo "Pushing Image to Docker Hub ..."
-                    echo "push to hub"
-                    sh "docker push spring-mongo"
+                    sh "docker tag spring-mongo aymenxd/spring-mongo:latest"
+                    sh "docker push aymenxd/spring-mongo:latest"
                 }
             }
         }
