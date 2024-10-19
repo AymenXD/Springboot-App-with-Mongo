@@ -3,15 +3,7 @@ pipeline {
     stages {
         stage("Get Project Code") {
             steps {
-                git url 'https://github.com/AymenXD/Springboot-App-with-Mongo.git', branch 'main'
-            }
-        }
-        stage("Build Project") {
-            steps {
-                script {
-                    echo "Building App ..."
-                    sh "mvn clean package"
-                }
+                git url 'https://github.com/AymenXD/Springboot-App-with-Mongo.git'
             }
         }
         stage("Dockerize Project") {
