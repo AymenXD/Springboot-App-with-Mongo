@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    stages {
+        stage("Get Project Code") {
+            steps {
+                git url 'https://github.com/AymenXD/Springboot-App-with-Mongo.git', branch 'main'
+            }
+        }
+        stage("Build Project") {
+            steps {
+                script {
+                    echo "Building App ..."
+                    sh "mvn clean package"
+                }
+            }
+        }
+        stage("Dockerize Project") {
+            steps {
+                script {
+                    echo "Dockerizing App ..."
+                    sh "docker build -t spring-mongo ."
+                }
+            }
+        }
+        stage("Push Docker Image to Docker Hub") {
+            steps {
+                script {
+                    echo "Pushing Image to Docker Hub ..."
+                    echo "push to hub"
+                    sh "docker push spring-mongo"
+                }
+            }
+        }
+    }
+}
