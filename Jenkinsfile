@@ -14,6 +14,11 @@ pipeline {
                 }
             }
         }
+        stage('Docker Login') {
+            steps {
+                sh 'docker login -u aymenxd -p Aymounaa'
+            }
+        }
         stage("Push Docker Image to Docker Hub") {
             steps {
                 script {
