@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Docker Login') {
             steps {
-                sh 'docker login -u aymenxd -p Aymounaa'
+                sh 'docker login -u aymenxd -p Aymounaa26'
             }
         }
         stage("Push Docker Image to Docker Hub") {
